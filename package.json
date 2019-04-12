@@ -1,0 +1,19 @@
+{
+  "name": "bookingauths",
+  "version": "1.0.0",
+  "description": "Booking application with react and node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathphoenix/BookingAuths.git"
+  },
+  "author": "Nathphoenix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathphoenix/BookingAuths/issues"
+  },
+  "homepage": "https://github.com/nathphoenix/BookingAuths#readme"
+}
