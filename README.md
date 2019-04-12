@@ -1,5 +1,7 @@
 # BookingAuths
 #procedure
+# create a new repo in your github account
+# clone the repo with gitbash
 # 1. after git init
 # 2. npm install -g create-react-app
 # 3. create-react-app .   the dot means u are creating in the folder u are inside in ur terminal

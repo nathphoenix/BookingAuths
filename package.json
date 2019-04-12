@@ -4,7 +4,10 @@
   "description": "Booking application with react and node",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --exec babel-node -- src/index.js",
+    "server": "nodemon -- src/index.js",
+    "client": "npm start --prefix book",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,19 @@
   "bugs": {
     "url": "https://github.com/nathphoenix/BookingAuths/issues"
   },
-  "homepage": "https://github.com/nathphoenix/BookingAuths#readme"
+  "homepage": "https://github.com/nathphoenix/BookingAuths#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.1",
+    "nodemon": "^1.18.11",
+    "prettier": "^1.17.0"
+  }
 }
