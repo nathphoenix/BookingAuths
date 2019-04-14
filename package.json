@@ -21,7 +21,7 @@
   "homepage": "https://github.com/nathphoenix/BookingAuths#readme",
   "dependencies": {
     "concurrently": "^4.1.0",
-    "eslint": "^5.16.0",
+    "eslint": "^5.12.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.16.0",
