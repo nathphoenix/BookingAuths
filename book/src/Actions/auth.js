@@ -8,9 +8,9 @@ export const userLoggedIn = user => ({
     user
 })
 
-// export const userLoggedOut = () => ({
-//     type : USER_LOGGED_OUT
-// })
+export const userLoggedOut = () => ({
+    type : USER_LOGGED_OUT
+})
 
 export const login = credentials => dispatch =>
 api.user.login(credentials).then(user => {
@@ -18,14 +18,14 @@ api.user.login(credentials).then(user => {
                                               //on page refresh and remain on the page with the credentials
     dispatch(userLoggedIn(user))});
 
-    // export const logout = () => dispatch =>
-    //  {
-    //     localStorage.removeItem('bookwormJWT');
-    //     dispatch(userLoggedOut());      //LOGOUT THUNK ACTION
-    // };
+    export const logout = () => dispatch =>
+     {
+        localStorage.removeItem('bookwormJWT');
+        dispatch(userLoggedOut());      //LOGOUT THUNK ACTION
+    };
 
-export const confirm = token => dispatch =>
-  api.user.confirm(token).then(user => {
-    // localStorage.bookwormJWT = user.token;
-    dispatch(userLoggedIn(user));
-  });
+// export const confirm = token => dispatch =>
+//   api.user.confirm(token).then(user => {
+//     localStorage.bookwormJWT = user.token;
+//     dispatch(userLoggedIn(user));
+//   });

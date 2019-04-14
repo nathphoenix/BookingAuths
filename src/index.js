@@ -5,14 +5,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');     //core nodejs module
-// const dotenv = require('dotenv')
-// const Promise = require('bluebird')
+const dotenv = require('dotenv')
+const Promise = require('bluebird')
 // const users = require('../routes/users');
-// const auth = require('../routes/auth');
+const auth = require('../routes/auth');    //we submit to database
 
 
 //to set up dotenv
-// dotenv.config();
+ dotenv.config();
 
 const app = express();
 
@@ -32,11 +32,11 @@ mongoose
 .catch(err => console.log(err));
 
 //Use route
-//  app.use('/api/auth', auth);
+ app.use('/api/auth', auth);
 //  app.use('/api/users', users);
 
 app.post("/api/auth", (req, res) => {
-    res.status(400).json({ errors: { global: "Invalid credentials"} });
+    res.status(400).json({ errors: { global: "Invalid credentials"} }); //when users enter invalid account details
 })
 
 app.get("/*", (req, res) => {
