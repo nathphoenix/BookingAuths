@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 // import { Link } from "react-router-dom";
+import {login} from "../../Actions/auth";
+import {connect} from "react-redux";  // to connect component to redux
 import LoginForm from "../form/LoginForm";
 
 
@@ -40,4 +42,4 @@ LoginPage.propTypes = {
 };
 
 
-export default LoginPage;
+export default connect (null, {login}) (LoginPage);
