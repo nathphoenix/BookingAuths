@@ -61,10 +61,14 @@ Schema.methods.toAuthJSON = function toAuthJSON(){
     this.passwordHash = bcrypt.hashSync(password, 10);
   };
   
-  // Schema.methods.setConfirmationToken = function setConfirmationToken() {
-  //   this.confirmationToken = this.generateJWT();
-  // };
+  Schema.methods.setConfirmationToken = function setConfirmationToken() {
+    this.confirmationToken = this.generateJWT();
+  };
   
+  Schema.methods.generateConfirmationUrl = function generateConfirmationUrl() {
+    return `${process.env.HOST}/confirmation/${this.confirmationToken}`;
+  };
+
 Schema.plugin(uniqueValidator, {message: "This email already exist"})  //unique validator is to avoid thesame multiple email
 
 //  export default mongoose.model("User", Schema);
