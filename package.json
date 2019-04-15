@@ -33,7 +33,9 @@
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.11",
     "mongoose": "^5.5.1",
+    "mongoose-unique-validator": "^2.0.2",
     "nodemon": "^1.18.11",
     "prettier": "^1.17.0",
     "promise": "^8.0.3"

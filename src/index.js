@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const path = require('path');     //core nodejs module
 const dotenv = require('dotenv')
 const Promise = require('bluebird')
-// const users = require('../routes/users');
+const users = require('../routes/users');
 const auth = require('../routes/auth');    //we submit to database
 
 
@@ -33,7 +33,7 @@ mongoose
 
 //Use route
  app.use('/api/auth', auth);
-//  app.use('/api/users', users);
+ app.use('/api/users', users);
 
 app.post("/api/auth", (req, res) => {
     res.status(400).json({ errors: { global: "Invalid credentials"} }); //when users enter invalid account details
