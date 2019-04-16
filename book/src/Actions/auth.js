@@ -25,8 +25,8 @@ api.user.login(credentials).then(user => {
         dispatch(userLoggedOut());      //LOGOUT THUNK ACTION
     };
 
-// export const confirm = token => dispatch =>
-//   api.user.confirm(token).then(user => {
-//     localStorage.bookwormJWT = user.token;
-//     dispatch(userLoggedIn(user));
-//   });
+export const confirm = token => dispatch =>
+  api.user.confirm(token).then(user => {
+    localStorage.bookwormJWT = user.token;
+    dispatch(userLoggedIn(user));
+  });

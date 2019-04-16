@@ -9,6 +9,7 @@ const dotenv = require('dotenv')
 const Promise = require('bluebird')
 const users = require('../routes/users');
 const auth = require('../routes/auth');    //we submit to database
+// const auth = require('../routes/auth');
 
 
 //to set up dotenv
@@ -34,6 +35,7 @@ mongoose
 //Use route
  app.use('/api/auth', auth);
  app.use('/api/users', users);
+//  app.use('/api/auth/confirmation', auth);
 
 app.post("/api/auth", (req, res) => {
     res.status(400).json({ errors: { global: "Invalid credentials"} }); //when users enter invalid account details

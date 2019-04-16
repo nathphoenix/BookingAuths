@@ -9,7 +9,7 @@ import DashboardPage from "./components/pages/DashboardPage";
 import UserRoute from "./components/Routes/UserRoute";  // this is to authenticate dashboard user before they can have access
 import GuestRoute from "./components/Routes/GuestRoute";
 import SignupPage from "./components/pages/SignupPage";
-// import ConfirmationPage from "./components/pages/ConfirmationPage";
+import ConfirmationPage from "./components/pages/ConfirmationPage";
 
 // class App extends Component {
   const App = ({location}) => (                     
@@ -18,7 +18,7 @@ import SignupPage from "./components/pages/SignupPage";
         <GuestRoute location={location} path="/login" exact component={LoginPage} />  {/*only guest users with login right should have access to dashboard*/}
         <UserRoute location={location} path="/dashboard" exact component={DashboardPage} />
         <GuestRoute location={location} path="/signup" exact component={SignupPage} />
-        {/* <Route location={location} path="/confirmation/:token" exact component={ConfirmationPage} /> */}
+        <Route location={location} path="/confirmation/:token" exact component={ConfirmationPage} />
         {/* <GuestRoute path="/dashboard" exact component={DashboardPage} /> */}
         {/*dashboard should be available to authenticated users with UserRoute */}
     </div>

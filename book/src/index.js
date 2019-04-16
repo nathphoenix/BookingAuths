@@ -4,6 +4,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
+import decode from "jwt-decode";
 import thunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import './index.css';
@@ -23,7 +24,11 @@ const store = createStore(
 );
 
 if (localStorage.bookwormJWT){
-    const user = {token: localStorage.bookwormJWT};   // to dispatch user loggedin actions(TOKEN) and the token is localstorage.bookwormJWT
+    const payload = decode(localStorage.bookwormJWT);  //this is to prevent frequent verrify account after verification link has been confirmed
+    const user = {token: localStorage.bookwormJWT,     // to dispatch user loggedin actions(TOKEN) and the token is localstorage.bookwormJWT
+         email:payload.email,
+         confirmed:payload.confirmed     // we decode json webtoken for user after verification of account
+    };   
     store.dispatch(userLoggedIn(user));
 }
 

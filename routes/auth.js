@@ -3,6 +3,7 @@
 const express = require('express');
 // import User from "../models/User";
 const User = require('../models/User');
+const UserReg = require('../models/UserReg');
 
 const router = express.Router();
 
@@ -67,17 +68,17 @@ router.post('/', (req, res ) =>{
 //      })
 // });
 
-// router.post("/confirmation", (req, res) => {
-//     const token = req.body.token;
-//     User.findOneAndUpdate(
-//       { confirmationToken: token },
-//       { confirmationToken: "", confirmed: true },
-//       { new: true }
-//     ).then(
-//       user =>
-//         user ? res.json({ user: user.toAuthJSON() }) : res.status(400).json({})
-//     );
-//   });
+router.post("/confirmation", (req, res) => {
+    const token = req.body.token;
+    UserReg.findOneAndUpdate(
+      { confirmationToken: token },
+      { confirmationToken: "", confirmed: true },
+      { new: true }
+    ).then(
+      user =>
+        user ? res.json({ user: user.toAuthJSON() }) : res.status(400).json({})
+    );
+  });
   
 
 // export default auth;

@@ -13,7 +13,13 @@ router.get('/', (req, res ) =>{
     UserReg.find()
     .sort({date:-1})
     .then(user => res.json(user));
-})
+});
+
+router.delete('/:id', (req, res) => {
+    UserReg.findById(req.params.id)
+      .then(user => user.remove().then(() => res.json({ success: true })))
+      .catch(err => res.status(404).json({ success: false }));
+  });
 
 router.post("/", (req, res) => {
   const {name, address, email, password } = req.body.user;
@@ -28,15 +34,7 @@ router.post("/", (req, res) => {
   .catch(err =>res.status(400).json({errors: parseErrors(err.errors) }));
 });
 
-//   user.setConfirmationToken();
-//   user
-//     .save()
-//     .then(userRecord => {
-//       sendConfirmationEmail(userRecord);
-//       res.json({ user: userRecord.toAuthJSON() });
-//     })
-//     .catch(err => res.status(400).json({ errors: parseErrors(err.errors) }));
-// });
+
 
 
 

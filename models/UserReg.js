@@ -29,7 +29,11 @@ const Schema = mongoose.Schema({
     confirmed : {
       type : Boolean,
       default: false
-  }
+  },
+  confirmationToken : {    //when users signup we want to generate confirmation token and save in the database
+    type : String,
+    default: ""
+}
 }, {timestamps: true}
 
 )
@@ -40,8 +44,9 @@ Schema.methods.isValidPassword = function isValidPassword(password) {
 
 Schema.methods.generateJWT = function generateJWT(){
     return jwt.sign({                   // this is the method with which we create and encrypt our token, we then pass our parameter in the curly braces
-        email : this.email     // this is done on purpose as a public data for anyone to access it
-    },
+        email : this.email,     // this is done on purpose as a public data for anyone to access it
+        confirmed : this.confirmed    // this is for public payload of jsonwebtoken after user verifying account
+      },
     //  'secretkey'
     process.env.JWT_SECRET
      );      // the secretkey is for encryption
